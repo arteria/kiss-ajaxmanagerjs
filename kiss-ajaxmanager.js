@@ -129,6 +129,7 @@ var ajaxManager = (function() {
         },
         stop:  function() {
             requests = [];
+			idleCb = null;
             clearTimeout(this.tid);
         },
         setIdleCallback: function(opt) {
