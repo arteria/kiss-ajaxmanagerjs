@@ -84,7 +84,10 @@ var ajaxManager = (function() {
                                     backdrop: 'static'
                                 });
                             }
-                            else {
+                            if (data.status == '500') {
+                                alert("500 - INTERNAL SERVER ERROR")
+                            }
+							else {
                                 $('#loadingMessageStatusTop').hide();
                                 $('#retryMessage').show();
                             }    
