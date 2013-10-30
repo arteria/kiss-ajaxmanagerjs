@@ -126,6 +126,6 @@ var ajaxManager = (function() {
 		},
 		setIdleCallback: function(opt) {
 			idleCb = opt;
-		},
+		}
 	};
 }());

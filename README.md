@@ -24,13 +24,15 @@ Please not, this "thing" is in alpha state.
 
 ### Installation
 #### Download
-Simply download the kiss-ajaxmanager.js	file from this repository and add it to your project.
+Simply download the kiss-ajaxmanager.js	file from this repository and add it to your project. For example:
+
+	<script type="text/javascript" src="/js/kiss-ajaxmanager.js"></script> 
 
 #### Hotlinking
 
 Use https://rawgithub.com/. The include will looks like this:
 	
-	https://rawgithub.com/arteria/kiss-ajaxmanagerjs/master/kiss-ajaxmanager.js	
+	<script type="text/javascript" src="https://rawgithub.com/arteria/kiss-ajaxmanagerjs/master/kiss-ajaxmanager.js"></script> 
 
 
 ### Setup (Start the engine.)
@@ -66,6 +68,8 @@ Unce the manager is running, process requests using the ``ajaxManager.addReq( ..
 	});
 
 #### removeReq (remove request)
+
+#### setIdleCallback
 
 
 
