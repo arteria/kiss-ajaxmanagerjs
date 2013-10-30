@@ -1,8 +1,8 @@
 var ajaxManager = (function() {
     var requests = [];
     var retry = 0;
+	var idleCb = null;
     return {
-         
         dump: function(opt) {
             alert("retry is " + retry);
             if (requests.length == 0) {
@@ -17,12 +17,10 @@ var ajaxManager = (function() {
         },
         addReq: function(opt) {
             requests.push(opt);
-            ////console.log("ADD " + requests.length + " requests in queue")
         },
         removeReq:  function(opt) {
             if ($.inArray(opt, requests) > -1){
                 requests.splice($.inArray(opt, requests), 1);
-                ////console.log("DEL " + requests.length + " requests in queue") 
             }
         },
         retry: function() {
@@ -57,7 +55,7 @@ var ajaxManager = (function() {
                     
                     requests[0].success = function(data) { // complete
                          try {
-                             //console.log(" ajaxMgr -> success");
+                            
                              $('#loadingMessageStatusTop').hide();
                              if (typeof oriSuc === 'function') { 
                                  //console.log(" ajaxMgr -> orig success");
@@ -74,7 +72,7 @@ var ajaxManager = (function() {
                     
                     requests[0].error = function(data){ // onError
                         try {
-                            //console.log(" ajaxMgr -> error");
+                          
                             if (data.status == '403') {
                                 // full overlay
                                 $("#loggedOutModal").modal({
@@ -98,7 +96,7 @@ var ajaxManager = (function() {
                     
                     requests[0].beforeSend = function(data, settings) { // onBeforeSend
                          try {
-                             //console.log(" ajaxMgr -> beforeSend");
+                            
                              $('#loadingMessageStatusTop').show();
                              if (typeof oriBef === 'function') { 
                                  oriBef(data, settings);
@@ -112,6 +110,11 @@ var ajaxManager = (function() {
                 $.ajax(requests[0]);   
             } 
             else {  
+				// is there an idle callback set? call it if so.
+				if (typeof idleCb == "function" ) {
+					idleCb();
+				}
+				    
                 self.tid = setTimeout(function() {
                     self.run.apply(self, []);
                 }, 50); //1000, 100 => 10Hz Current settings, refresh queue at 20 Hz
@@ -121,6 +124,9 @@ var ajaxManager = (function() {
             requests = [];
             clearTimeout(this.tid);
         }
+        setIdleCallback: function(opt) {
+        	idleCb = opt;
+        },
      };
 }());
 
