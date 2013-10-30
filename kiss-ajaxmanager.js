@@ -58,8 +58,12 @@ var ajaxManager = (function() {
                             
                              $('#loadingMessageStatusTop').hide();
                              if (typeof oriSuc === 'function') { 
-                                 //console.log(" ajaxMgr -> orig success");
-                                 oriSuc(data);
+                                 try {
+									 oriSuc(data);
+                                 }
+								 catch (error) {
+                                 	alert("KISS AJAX MANAGER ERROR (100) " + error);
+                                 }
                              }
                              requests.shift();
                              self.run.apply(self, []);
