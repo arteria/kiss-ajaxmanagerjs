@@ -123,7 +123,7 @@ var ajaxManager = (function() {
         stop:  function() {
             requests = [];
             clearTimeout(this.tid);
-        }
+        },
         setIdleCallback: function(opt) {
         	idleCb = opt;
         },
