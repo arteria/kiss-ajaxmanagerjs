@@ -113,7 +113,7 @@ var ajaxManager = (function() {
 				// is there an idle callback set? call it if so.
 				if (typeof idleCb == "function") {
 					idleCb();
-				},
+				}
 				self.tid = setTimeout(function() {
 					self.run.apply(self, []);
 				}, 50); //1000, 100 => 10Hz Current settings, refresh queue at 20 Hz

@@ -3,15 +3,23 @@
 Please not, this "thing" is in alpha state. 
 
 
+
+
 ## About kiss-ajaxmanager.js
 
-(Keep It) Simple and stupid AJAX manager for JavaScript.
+(Keep It) Simple and stupid AJAX manager for JavaScript. We use this AJAX manager in combination with Backbone.js (and without as well) 
+in our Single-page applications.
+ 
+
 
 | kiss-ajaxmanager.js |  | 
 | ------------- | --- | 
 | Current version | 0.1.0 |
 | License | The MIT License |
 
+## Features
+
+* 
 
 ## Requirements and Dependencies
 
@@ -19,12 +27,13 @@ Please not, this "thing" is in alpha state.
 * jQuery
 
 
-## Usage
+## How to use kiss-ajaxmanager.js
  
 
-### Installation
-#### Download
-Simply download the kiss-ajaxmanager.js	file from this repository and add it to your project. For example:
+### Installation Instruction
+#### Downloading
+Simply download the kiss-ajaxmanager.js	file from this repository (cd ./js/ && wget https://raw.github.com/arteria/kiss-ajaxmanagerjs/master/kiss-ajaxmanager.js -O kiss-ajaxmanager.js) and add it to your project. Asuming you downloaded the file into your /js/ directory, the
+inlcude would be:
 
 	<script type="text/javascript" src="/js/kiss-ajaxmanager.js"></script> 
 
@@ -35,7 +44,7 @@ Use https://rawgithub.com/. The include will looks like this:
 	<script type="text/javascript" src="https://rawgithub.com/arteria/kiss-ajaxmanagerjs/master/kiss-ajaxmanager.js"></script> 
 
 
-### Setup (Start the engine.)
+### AJAX Setup (Start the Engine!)
 
 
 In your DOM ready routine, run the AJAX manager.
@@ -45,11 +54,11 @@ In your DOM ready routine, run the AJAX manager.
 	});
 
 
-### ajaxManager in action (or "how to use it")
+### ajaxManager in action (or "how to use it in your Web App")
 
-#### addReq (add request)
+#### addReq (add Request)
 
-Unce the manager is running, process requests using the ``ajaxManager.addReq( .. )`` method. Basically you could replace all your ``$.ajax( .. )`` calls in your source.
+Once the manager is running, process requests using the ``ajaxManager.addReq( .. )`` method. Basically you could replace all your ``$.ajax( .. )`` calls in your source. 
 
 	ajaxManager.addReq({
 	   type: 'POST',
@@ -67,22 +76,22 @@ Unce the manager is running, process requests using the ``ajaxManager.addReq( ..
 	   } 
 	});
 
-#### removeReq (remove request)
+#### removeReq (remove Request)
+
+Docs #TODO
 
 #### setIdleCallback
 
+This method is called every time ... #TODO
 
 
-
-## TODO, planned features and know issues
-
+## TODO, planned Features and know Issues
 
 * cleanup retry mechanism.
 * Automatically add requests (Polling) (if in idle mode).
 * Increase and decrease frequence if more or less requests are in the queue.
 
-## Version history and changelog
-
+## Version History and Changelog
 
 ### 0.1.0
 
