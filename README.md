@@ -88,8 +88,9 @@ This method is called every time ... #TODO
 ## TODO, planned Features and know Issues
 
 * cleanup retry mechanism.
-* Automatically add requests (Polling) (if in idle mode).
+* Automatically add requests (Polling) (if in idle mode, see ``setIdleCallback``).
 * Increase and decrease frequence if more or less requests are in the queue.
+* Add stack trace support (http://stacktracejs.com/) to provide more info in case of an error
 
 ## Version History and Changelog
 
