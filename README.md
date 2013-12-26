@@ -19,7 +19,8 @@ in our Single-page applications.
 
 ## Features
 
-* 
+* Uniformed AJAX calls
+* Automatically add requests (Polling) (if in idle mode, see ``setIdleCallback``).
 
 ## Requirements and Dependencies
 
@@ -84,13 +85,18 @@ Docs #TODO
 
 This method is called every time ... #TODO
 
+	
+	ajaxManager.setIdleCallback(function(){
+	    console.log('It\'s so boring...');
+	});
+
 
 ## TODO, planned Features and know Issues
 
-* cleanup retry mechanism.
-* Automatically add requests (Polling) (if in idle mode, see ``setIdleCallback``).
+* Cleanup and retry mechanism.
 * Increase and decrease frequence if more or less requests are in the queue.
 * Add stack trace support (http://stacktracejs.com/) to provide more info in case of an error
+* 
 
 ## Version History and Changelog
 
