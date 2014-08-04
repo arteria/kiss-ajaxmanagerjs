@@ -2,6 +2,7 @@ var ajaxManager = (function() {
 	var requests = [];
 	var retry = 0;
 	var idleCb = null;
+	var autoCacheCb = null;
 	return {
 		dump: function(opt) {
 			alert("retry is " + retry);
@@ -56,7 +57,11 @@ var ajaxManager = (function() {
 
 							$('#loadingMessageStatusTop')
 								.hide();
-							if (typeof oriSuc === 'function') {
+							
+							if (typeof autoCacheCb == "function" && typeof oriSuc === 'function') {
+								autoCacheCb(data, oriSuc);
+							}
+							else if (typeof oriSuc === 'function') {
 								try {
 									oriSuc(data);
 								} catch (error) {
@@ -126,6 +131,9 @@ var ajaxManager = (function() {
 		},
 		setIdleCallback: function(opt) {
 			idleCb = opt;
+		},
+		setAutoCacheCallback: function(opt) {
+			autoCacheCb = opt;
 		}
 	};
 }());
