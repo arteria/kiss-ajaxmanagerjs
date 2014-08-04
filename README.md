@@ -14,7 +14,7 @@ in our Single-page applications.
 
 | kiss-ajaxmanager.js |  | 
 | ------------- | --- | 
-| Current version | 0.1.0 |
+| Current version | 0.1.1 |
 | License | The MIT License |
 
 ## Features
@@ -83,12 +83,24 @@ Docs #TODO
 
 #### setIdleCallback
 
-This method is called every time ... #TODO
+The method passed by setIdleCallback is called every time a request queue is empty.
 
 	
 	ajaxManager.setIdleCallback(function(){
 	    console.log('It\'s so boring...');
 	});
+
+
+### setAutoCacheCallback
+
+Allows to pass a function that takes the request and the success callback. The `data` object must be passed to origSuc See the following example:
+
+
+	ajaxManager.setAutoCacheCallback(function(data, successCb){
+	    console.log("Caching data...", data); // Simulates caching. Plays well with https://github.com/arteria/kiss-cache.js
+	    successCb(data); // Calls original success callback for this request.
+	});
+
 
 
 ## TODO, planned Features and know Issues
@@ -99,6 +111,10 @@ This method is called every time ... #TODO
 * 
 
 ## Version History and Changelog
+
+### 0.1.1
+
+Auto caching support added.
 
 ### 0.1.0
 
